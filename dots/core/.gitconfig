@@ -1,0 +1,20 @@
+[pull]
+    rebase = merges
+
+[user]
+    name = Ryan Beasse
+    email = git@ryanbeasse.com
+
+[core]
+    autocrlf = input
+    editor = code -w
+    filemode = false
+    excludesFile = ~/.gitignore
+
+[alias]
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    update = "!git fetch && git pull"
+    publish = "!git push --set-upstream origin $(git branch-name)"
+    dev = "!git checkout develop && git update"
+    please = "push --force-with-lease"
+    co = checkout

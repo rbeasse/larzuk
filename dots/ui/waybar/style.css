@@ -1,0 +1,95 @@
+* {
+  font-family: CaskaydiaMono Nerd Font;
+  font-size: 14px;
+  color: #cdd6f4;
+}
+
+#waybar {
+  background:#11111B;
+  margin: 0px 10px;
+  border-bottom: 1px solid #89b4fa;
+}
+
+#workspaces {
+  margin: 0 15px;
+}
+
+#workspaces button {
+  padding: 0 6px;
+  border: 1px solid #313244;
+  margin: 3px 2px;
+  background: transparent;
+  border-radius: 0;
+}
+
+#workspaces button label {
+  color: #585b70;
+}
+
+#workspaces button.empty {
+  opacity: 0.3;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  border-color: #89b4fa;
+}
+
+#workspaces button.active label,
+#workspaces button.focused label {
+  color: #89b4fa;
+  font-weight: bold;
+}
+
+#workspaces button:hover label {
+  color: #a6adc8;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+.modules-right .module {
+  padding: 4px 10px;
+  margin: 2px 1px;
+}
+
+#custom-logo {
+  padding: 4px 10px 4px 15px;
+  font-size: 16px;
+}
+
+#custom-docker {
+  font-size: 18px;
+}
+
+#battery.critical {
+  color: #eba0ac;
+}
+
+#battery.warning {
+  color: #f9e2af;
+}
+
+#battery {
+  margin-right: 15px;
+}
+
+.modules-right .module:hover {
+  color: #7287fd;
+}
+
+tooltip {
+  background: #1e1e2e;
+  border: 1px solid #89b4fa;
+  padding: 8px 12px;
+  border-radius: 0;
+}
+
+tooltip label {
+  color: #cdd6f4;
+}

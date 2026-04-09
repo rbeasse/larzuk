@@ -1,0 +1,90 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+  "modules-left": ["custom/logo"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["custom/updates", "custom/docker", "bluetooth", "network", "pulseaudio", "battery", "clock"],
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{name}",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    }
+  },
+
+  "clock": {
+    "format": "<b>{:%I:%M %p}</b>",
+    "format-alt": "{:%B %d, %Y}",
+    "tooltip": false
+  },
+  
+  "custom/logo": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "walker"
+  },
+
+  "custom/updates": {
+    "exec": "count=$(yay -Qu 2>/dev/null | wc -l); [ \"$count\" -gt 0 ] && echo \"󰚰 $count\" || exit 1",
+    "interval": 300,
+    "tooltip-format": "Updates available",
+    "on-click": "hyprctl dispatch exec '[float;size 900 600;center] ghostty -e yay -Syu'"
+  },
+
+  "custom/docker": {
+    "format": "󰡨",
+    "tooltip-format": "Running containers: {}",
+    "exec": "docker ps -q | wc -l",
+    "interval": 10,
+    "on-click": "hyprctl dispatch exec '[float;size 900 600;center] ghostty -e lazydocker'"
+  },
+
+  "network": {
+    "format": "󰖩",
+    "format-wifi": "{icon}",
+    "format-ethernet": "ETH",
+    "format-disconnected": "X",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-wifi": "{essid}\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+    "interval": 3,
+    "on-click": "hyprctl dispatch exec '[float;size 900 600;center] ghostty -e impala'"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "󰝟",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "on-click": "hyprctl dispatch exec '[float;size 900 600;center] ghostty -e wiremix'",
+    "scroll-step": 5
+  },
+
+  "battery": {
+    "format": "{icon}",
+    "format-charging": "{icon}",
+    "format-full": "󰂅",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "tooltip-format": "{capacity}% • {power:.1f}W",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{num_connections} connected",
+    "on-click": "hyprctl dispatch exec '[float;size 900 600;center] ghostty -e bluetui'"
+  }
+}

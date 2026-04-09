@@ -1,0 +1,28 @@
+# Colour Theme
+DIR_COLOUR='\[\e[38;5;81m\]'
+BRANCH_COLOUR='\[\e[38;5;79m\]'
+SYMBOL_COLOUR='\[\e[38;5;222m\]'
+LOCK_COLOUR='\[\e[38;5;9m\]'
+RESET_COLOUR='\[\e[0m\]'
+
+# Determine the current git branch.. if one exists.
+git_branch(){
+  branch_name="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+
+  if [ -n "$branch_name" ]; then
+    echo "$BRANCH_COLOUR<$branch_name> "
+  else
+    echo ""
+  fi
+}
+
+# Add a little lock icon if the current directory is not writable.
+write_permission(){
+  if [ -w "$(pwd)" ]; then
+    echo ""
+  else
+    echo "$LOCK_COLOUR🔒 "
+  fi
+}
+
+PROMPT_COMMAND='PS1="$(write_permission)$DIR_COLOUR\w $(git_branch)$SYMBOL_COLOUR→$RESET_COLOUR "'

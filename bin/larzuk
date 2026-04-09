@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+# Usage:
+#   larzuk config
+#   larzuk config --ui
+#   larzuk install
+#   larzuk install --ui
+
+if ! [ -d $HOME/larzuk ]; then
+  echo "[error] Please ensure you cloned larzuk to your home directory"
+  exit 1
+fi
+
+# Symlink dotfiles from dots/core to ~ and, if --ui, app configs from dots/ui to ~/.config.
+# Going deeper is not needed as a symlinked directory will include all children.
+create_symlinks_for_dots() {
+  for file in $(find $HOME/larzuk/dots/core -maxdepth 1 -mindepth 1); do
+    filename=$(basename $file)
+    rm -rf $HOME/$filename
+    ln -s $file $HOME/$filename
+    echo "[info] Created symlink: $file -> $HOME/$filename"
+  done
+
+  if [ "$1" = "--ui" ]; then
+    for file in $(find $HOME/larzuk/dots/ui -maxdepth 1 -mindepth 1); do
+      filename=$(basename $file)
+      rm -rf $HOME/.config/$filename
+      ln -s $file $HOME/.config/$filename
+      echo "[info] Created symlink: $file -> $HOME/.config/$filename"
+    done
+  fi
+}
+
+# Install packages from the relevant package lists using yay.
+install_packages() {
+  local lists=$HOME/larzuk/packages/core.txt
+  [ "$1" = "--ui" ] && lists="$lists $HOME/larzuk/packages/ui.txt"
+
+  packages=$(grep -hv "^#\|^$" $lists)
+
+  echo "[info] Installing packages via yay..."
+  echo $packages | xargs yay -S --needed
+}
+
+# Handle config and install arguments, with optional --ui flag.
+if [ "$1" = "install" ]; then
+  install_packages $2
+elif [ "$1" = "config" ]; then
+  create_symlinks_for_dots $2
+else
+  echo "[error] Please provide an argument (config|install)"
+  exit 1
+fi

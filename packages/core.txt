@@ -1,0 +1,10 @@
+# core — works on any machine (headless/server/desktop)
+git
+fzf
+ripgrep
+yazi
+zoxide
+docker
+docker-compose
+lazydocker
+tailscale
