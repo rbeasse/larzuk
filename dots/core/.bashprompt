@@ -1,4 +1,5 @@
 # Colour Theme
+HOST_COLOUR='\[\e[38;5;183m\]'
 DIR_COLOUR='\[\e[38;5;81m\]'
 BRANCH_COLOUR='\[\e[38;5;79m\]'
 SYMBOL_COLOUR='\[\e[38;5;222m\]'
@@ -25,4 +26,4 @@ write_permission(){
   fi
 }
 
-PROMPT_COMMAND='PS1="$(write_permission)$DIR_COLOUR\w $(git_branch)$SYMBOL_COLOUR→$RESET_COLOUR "'
+PROMPT_COMMAND='PS1="$(write_permission)$HOST_COLOUR[\h] $DIR_COLOUR\w $(git_branch)$SYMBOL_COLOUR→$RESET_COLOUR "'
