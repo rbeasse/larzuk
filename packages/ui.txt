@@ -10,7 +10,6 @@ elephant-calc
 elephant-desktopapplications
 elephant-files
 elephant-runner
-dunst
 grim
 slurp
 wl-clipboard

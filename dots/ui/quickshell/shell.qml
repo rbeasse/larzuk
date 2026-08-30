@@ -1,11 +1,14 @@
 // shell.qml
 //
-// Entry point. Spawns one Bar per connected screen.
+// Entry point. Spawns one Bar per connected screen, plus a single
+// notification popup daemon (replaces dunst).
 
 import Quickshell
 import QtQuick
 
 ShellRoot {
+    Notifications {}
+
     Variants {
         model: Quickshell.screens
 
