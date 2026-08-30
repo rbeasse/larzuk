@@ -1,0 +1,4 @@
+# Hyprland auto-regenerates this stub live when hyprland.conf/lua isn't
+# picked up yet by the running compositor (before a restart onto the
+# Lua config). Never meant to be committed.
+/dots/ui/hypr/hyprland.conf
