@@ -2,7 +2,7 @@
 hyprland
 hyprpaper
 uwsm
-waybar
+quickshell
 ghostty
 walker
 elephant
