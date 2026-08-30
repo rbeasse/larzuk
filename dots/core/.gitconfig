@@ -18,3 +18,9 @@
     dev = "!git checkout develop && git update"
     please = "push --force-with-lease"
     co = checkout
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/ryan/.local/share/mise/installs/gh/2.89.0/gh_2.89.0_linux_amd64/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/ryan/.local/share/mise/installs/gh/2.89.0/gh_2.89.0_linux_amd64/bin/gh auth git-credential
