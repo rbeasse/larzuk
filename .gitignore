@@ -2,3 +2,11 @@
 # picked up yet by the running compositor (before a restart onto the
 # Lua config). Never meant to be committed.
 /dots/ui/hypr/hyprland.conf
+
+# Runtime state herdr writes into its own config dir at startup — logs,
+# plugin lockfile, sockets, persisted session/layout. Not config, never
+# meant to be committed.
+/dots/ui/herdr/*.log
+/dots/ui/herdr/.plugins.lock
+/dots/ui/herdr/*.sock
+/dots/ui/herdr/session.json

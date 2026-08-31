@@ -8,3 +8,4 @@ docker
 docker-compose
 lazydocker
 tailscale
+herdr-bin

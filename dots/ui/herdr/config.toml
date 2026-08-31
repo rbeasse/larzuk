@@ -1,0 +1,18 @@
+# https://herdr.dev — terminal workspace manager for AI coding agents
+# Full option reference: `herdr --default-config`
+
+[theme]
+name = "catppuccin"
+
+# Split off a Claude pane using the account-scoped alias defined in .bashrc
+# (CLAUDE_CONFIG_DIR points each at its own auth/config dir), so both can
+# run side by side at once.
+[[keys.command]]
+key = "prefix+alt+p"
+type = "pane"
+command = "claude-personal"
+
+[[keys.command]]
+key = "prefix+alt+w"
+type = "pane"
+command = "claude-work"

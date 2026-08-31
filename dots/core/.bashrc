@@ -16,6 +16,8 @@ alias ....='cd ../../..'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias code='codium'
+alias claude-personal='CLAUDE_CONFIG_DIR="$HOME/.claude" claude'
+alias claude-work='CLAUDE_CONFIG_DIR="$HOME/.claude-work" claude'
 
 if command -v eza &>/dev/null; then
   alias ls='eza -lh --group-directories-first'
